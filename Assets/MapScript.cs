@@ -143,6 +143,8 @@ public class MapScript : MonoBehaviour
             {
                 if (islandMap[x,y] == 1)
                 {
+                    //Bei der Tile Erstellung muss die x, y Position und der Array für die Map übergeben werden
+                    // nur diese garantiert das wir eine RuleTile bauen können die sich automatisch anpasst.
                     GameObject go = Instantiate<GameObject>(tile);
                     go.transform.position = new Vector3(x, y, 0);
                 }
