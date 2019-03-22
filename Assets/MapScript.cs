@@ -147,6 +147,9 @@ public class MapScript : MonoBehaviour
                     // nur diese garantiert das wir eine RuleTile bauen können die sich automatisch anpasst.
                     GameObject go = Instantiate<GameObject>(tile);
                     go.transform.position = new Vector3(x, y, 0);
+                    go.GetComponent<SmartTile>().x = x;
+                    go.GetComponent<SmartTile>().y = y;
+                    go.GetComponent<SmartTile>().islandMap = islandMap;
                 }
             }
         }
