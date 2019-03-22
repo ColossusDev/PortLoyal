@@ -225,9 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapWidth: 100
   mapHeight: 100
-  islandPossibility: 500
-  maxIslandSize: 5
-  minIslandSize: 2
+  islandPossibility: 1000
+  maxIslandSize: 9
+  minIslandSize: 6
   tile: {fileID: 672410464733629337, guid: f37fb2e4bd671499a85afff6cafd7453, type: 3}
 --- !u!4 &349795124
 Transform:

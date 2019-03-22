@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4079257467174594068}
   - component: {fileID: 1781600220014750648}
+  - component: {fileID: 5934815292063665478}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -79,3 +80,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5934815292063665478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672410464733629337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b381f1661d2444b3a3d141bca0e70e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  UpRight: {fileID: 21300000, guid: 0140731fb0170490aab899016f3f1a53, type: 3}
+  UpLeft: {fileID: 21300000, guid: a1fa779f363b94477a61fe8207c02e4a, type: 3}
+  DownRight: {fileID: 21300000, guid: 81927d13060f445d5b006ca04378f61e, type: 3}
+  DownLeft: {fileID: 21300000, guid: 802f688647cfe47dea2080be2c141ef8, type: 3}
+  LeftRightUp: {fileID: 21300000, guid: 3b8eab32cffc14f03adc0525c6915773, type: 3}
+  LeftRightDown: {fileID: 21300000, guid: 9962b886422e346e4958e0450248ca84, type: 3}
+  UpDownLeft: {fileID: 21300000, guid: a7a6944dac0c14e5f95128319400c7e3, type: 3}
+  UpDownRight: {fileID: 21300000, guid: 9ae854d9ba1724a94886cec0bb5d1e7e, type: 3}
+  Left: {fileID: 0}
+  Up: {fileID: 0}
+  Right: {fileID: 0}
+  Down: {fileID: 0}
+  LeftRight: {fileID: 0}
+  UpDown: {fileID: 0}
+  LeftUpRightDown: {fileID: 21300000, guid: 29695a965c1b344fdbdc0caa89447290, type: 3}
