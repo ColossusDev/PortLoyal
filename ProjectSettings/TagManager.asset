@@ -38,12 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Water
     uniqueID: 2522377377
     locked: 0
   - name: Land
     uniqueID: 1054490543
+    locked: 0
+  - name: Player
+    uniqueID: 154956213
+    locked: 0
+  - name: Plants
+    uniqueID: 1434602895
+    locked: 0
+  - name: Cities
+    uniqueID: 2111404015
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

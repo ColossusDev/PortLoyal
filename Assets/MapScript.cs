@@ -8,7 +8,9 @@ public class MapScript : MonoBehaviour
     [SerializeField] int mapHeight = 0;
 
     float[,] knotMap;
-    int[,] islandMap;
+    float[,] islandMap;
+    float[,] navMesh;
+    PathFind.Grid pathfindGrid;
 
     [Space]
     [SerializeField] [Tooltip("Big number is small possibility")] int islandPossibility = 0;
@@ -17,17 +19,22 @@ public class MapScript : MonoBehaviour
 
     [Space]
     [SerializeField] GameObject tile = null;
+    [SerializeField] GameObject water = null;
 
     // Start is called before the first frame update
     void Start()
     {
         knotMap = new float[mapWidth,mapHeight];
-        islandMap = new int[mapWidth,mapHeight];
+        islandMap = new float[mapWidth, mapHeight];
+        navMesh = new float[mapWidth,mapHeight];
 
         generateKnots();
         generateIslands();
         readIslandsgeneration();
         drawMap();
+        generateNavMesh();
+
+        pathfindGrid = new PathFind.Grid(mapWidth, mapHeight, navMesh);
     }
 
     // Update is called once per frame
@@ -141,17 +148,49 @@ public class MapScript : MonoBehaviour
         {
             for (int y = 0; y < mapHeight; y++)
             {
-                if (islandMap[x,y] == 1)
+                GameObject go = Instantiate<GameObject>(water);
+                go.transform.position = new Vector3(x, y, 0);
+                go.GetComponent<TileScript>().x = x;
+                go.GetComponent<TileScript>().y = y;
+
+                if (islandMap[x,y] > 0.99)
                 {
-                    //Bei der Tile Erstellung muss die x, y Position und der Array für die Map übergeben werden
-                    // nur diese garantiert das wir eine RuleTile bauen können die sich automatisch anpasst.
-                    GameObject go = Instantiate<GameObject>(tile);
+                    go = Instantiate<GameObject>(tile);
                     go.transform.position = new Vector3(x, y, 0);
+                    go.GetComponent<TileScript>().x = x;
+                    go.GetComponent<TileScript>().y = y;
                     go.GetComponent<SmartTile>().x = x;
                     go.GetComponent<SmartTile>().y = y;
                     go.GetComponent<SmartTile>().islandMap = islandMap;
                 }
             }
         }
+    }
+
+    private void generateNavMesh()
+    {
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                if (islandMap[x,y] >= 0.99f)
+                {
+                    navMesh[x, y] = 0;
+                }
+                else
+                {
+                    navMesh[x, y] = 1;
+                }
+            }
+        }
+    }
+
+    public List<PathFind.Point> Astar(int startX, int startY, int targetX, int targetY)
+    {
+
+        PathFind.Point _from = new PathFind.Point(startX, startY);
+        PathFind.Point _to = new PathFind.Point(targetX, targetY);
+
+        return PathFind.Pathfinding.FindPath(pathfindGrid, _from, _to);
     }
 }

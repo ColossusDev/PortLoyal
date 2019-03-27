@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmartTile : MonoBehaviour
 {
-    public int[,] islandMap = null;
+    public float[,] islandMap = null;
     public int x;
     public int y;
 
